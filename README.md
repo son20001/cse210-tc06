@@ -35,3 +35,5 @@ root                    (project root folder)
 ## Authors
 ---
 * # TODO: Add your names and emails here
+
+Yucheol Son -- ldsycson@byui.edu
