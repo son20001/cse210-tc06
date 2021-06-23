@@ -26,16 +26,22 @@ class Board:
         Returns:
             string: A representation of the current board.
         """ 
+        changed = False
         text = '\n--------------------'
+        player, index = roster.get_player()
+
+        if index == 1:
+            roster.next_player()
+            changed = True
         player = roster.get_current()
         player_name = player.get_name()
         move = player.get_move()
         if move is None:
-            text += (f'\nPlayer{player_name}: ----, ****  ')
+            text += (f'\nPlayer {player_name}: ----, ****  ')
         else:
             guess = move.get_guess()
             hint = self._create_hint(self._code, guess)
-            text += (f'\nPlayer{player_name}: {guess}, {hint}  ')            
+            text += (f'\nPlayer {player_name}: {guess}, {hint}  ')            
 
         roster.next_player()
         player = roster.get_current()
@@ -50,6 +56,8 @@ class Board:
 
         text += '\n--------------------'
         roster.next_player()
+        if changed:
+            roster.next_player()
         return text
         
 
