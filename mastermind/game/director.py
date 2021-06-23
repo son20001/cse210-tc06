@@ -38,6 +38,7 @@ class Director:
             self (Director): an instance of Director.
         """
         self._prepare_game()
+        print(self._board._code)
         while self._keep_playing:
             self._get_inputs()
             self._do_updates()
@@ -62,18 +63,13 @@ class Director:
             self (Director): An instance of Director.
         """
         # display the game board
-        player = self._roster.get_current()
-        move = Move(3)
-        player.set_move(move)
-        print(player.get_move().get_guess())
         board = self._board.to_string(self._roster) 
         self._console.write(board)
         # get next player's move
         player = self._roster.get_current()
         self._console.write(f"{player.get_name()}'s turn:")
-        pile = self._console.read("What is your guess? ")
-        stones = self._console.read("How many stones to remove? ")
-        move = Move(stones, pile)
+        guess = self._console.read("What is your guess? ")
+        move = Move(guess)
         player.set_move(move)
 
     def _do_updates(self):
@@ -83,9 +79,9 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        player = self._roster.get_current()
-        move = player.get_move()
-        self._board.apply(move)
+        # player = self._roster.get_current()
+        # move = player.get_move()
+        # self._board.apply(move)
  
     def _do_outputs(self):
         """Outputs the important game information for each round of play. In 
@@ -94,7 +90,7 @@ class Director:
         Args:
             self (Director): An instance of Director.
         """
-        if self._board.is_win():
+        if self._board.is_win(self._roster):
             winner = self._roster.get_current()
             name = winner.get_name()
             print(f"\n{name} won!")

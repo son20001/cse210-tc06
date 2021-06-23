@@ -56,7 +56,7 @@ class Board:
             string: A representation of the current board.
         """ 
         text =  "\n--------------------"
-        
+        text += "something result\n"
         text += "\n--------------------"
         return text
 
