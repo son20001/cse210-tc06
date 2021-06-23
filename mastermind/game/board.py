@@ -15,7 +15,7 @@ class Board:
         Args:
             self (Board): an instance of Board.
         """
-        self._piles = []
+        self._code = ""
         self._prepare()
 
     def apply(self, move):
@@ -64,7 +64,5 @@ class Board:
         Args:
             self (Board): an instance of Board.
         """
-        piles = random.randint(2, 5) 
-        for n in range(piles):
-            stones = random.randint(1, 9)
-            self._piles.append(stones)
+        for n in range(4):
+            self._code += str(random.randint(1, 9))
