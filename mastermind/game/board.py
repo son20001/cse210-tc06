@@ -40,9 +40,11 @@ class Board:
             boolean: True if the board has no stones on it; false if otherwise.
         """
         player = roster.get_current()
-
-        empty = [0] * len(self._piles)
-        return self._piles == empty
+        guess = player.get_move().get_guess()
+        if guess == self._code:
+            return True
+        else:
+            return False
 
     def to_string(self, roster):
         """Converts the board data to its string representation.
