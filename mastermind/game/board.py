@@ -56,8 +56,7 @@ class Board:
             string: A representation of the current board.
         """ 
         text =  "\n--------------------"
-        for pile, stones in enumerate(self._piles):
-            text += (f"\n{pile}: " + "O " * stones)
+        
         text += "\n--------------------"
         return text
 
