@@ -37,3 +37,5 @@ root                    (project root folder)
 * # TODO: Add your names and emails here
 
 Yucheol Son -- ldsycson@byui.edu
+
+David Raya
