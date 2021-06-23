@@ -27,18 +27,17 @@ class Roster:
         if player not in self.players:
             self.players.append(player)
 
-    def get_player(self):
+    def get_curent_index(self):
         """Gets the current player object.
         
         Args:
             self (Roster): An instance of Roster.
         
         Returns:
-            Player: The current player.
             index: the index of player(order of player)
         """
-        player = self.players[self.current]
-        return player, self.players.index(player)
+        index = self.current
+        return index
 
     def get_current(self):
         """Gets the current player object.

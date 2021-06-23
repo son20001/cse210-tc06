@@ -28,7 +28,7 @@ class Board:
         """ 
         changed = False
         text = '\n--------------------'
-        player, index = roster.get_player()
+        index = roster.get_current_index()
 
         if index == 1:
             roster.next_player()
