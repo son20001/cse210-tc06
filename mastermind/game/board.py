@@ -30,7 +30,7 @@ class Board:
         stones = move.get_stones()
         self._piles[pile] = max(0, self._piles[pile] - stones)
     
-    def is_win(self, roaster):
+    def is_win(self, roster):
         """Determines if all the stones have been removed from the board.
         
         Args:
@@ -39,10 +39,12 @@ class Board:
         Returns:
             boolean: True if the board has no stones on it; false if otherwise.
         """
+        player = roster.get_current()
+
         empty = [0] * len(self._piles)
         return self._piles == empty
 
-    def to_string(self):
+    def to_string(self, roster):
         """Converts the board data to its string representation.
 
         Args:
